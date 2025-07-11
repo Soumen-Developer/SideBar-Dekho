@@ -31,8 +31,9 @@ export default function Sidebar({ sidebarState, setSidebarState }) {
 
   const getNavClasses = () => {
     const classes = ['shadow-md', 'p-2', 'flex', 'flex-col', 'duration-500', 'bg-red-600', 'text-white', 'z-40', 'fixed', 'h-screen'];
+    
     if (sidebarState === 2) {
-      classes.push('w-60');
+      classes.push('w-64');
     } else if (sidebarState === 1) {
       classes.push('w-16');
     } else {
@@ -55,7 +56,7 @@ export default function Sidebar({ sidebarState, setSidebarState }) {
         <SidebarHeader sidebarState={sidebarState} setSidebarState={setSidebarState} />
 
         {/* Body */}
-        <ul className='flex-1'>
+        <ul className='flex-1 flex flex-col overflow-hidden'>
           {menuItems.map((item, index) => (
             <Link to={item.path} key={index}>
               <li className='px-3 py-2 my-2 hover:bg-red-800 rounded-md duration-300 cursor-pointer flex gap-2 items-center relative group'>

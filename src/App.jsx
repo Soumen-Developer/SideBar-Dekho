@@ -16,9 +16,10 @@ function App() {
     <BrowserRouter>
       <div className="flex">
         <Sidebar sidebarState={sidebarState} setSidebarState={setSidebarState} />
-        <div className={`w-full p-4 transition-all duration-500 ${sidebarState === 2 ? 'ml-60' : sidebarState === 1 ? 'ml-16' : ''}`}>
+        <div className={`relative w-full h-screen overflow-y-auto p-4 transition-all duration-500 ${sidebarState === 2 ? 'ml-64' : sidebarState === 1 ? 'ml-16' : 'ml-0'}`}>
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<Home sidebarState={sidebarState} />} /> 
+            {/* <Route path="add-user" element={<AddUserForm />} /> */}
             <Route path="/products" element={<Products />} />
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/setting" element={<Setting />} />
